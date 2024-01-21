@@ -1,6 +1,7 @@
 import React from "react";
-import { FaBook, FaCashRegister, FaCreditCard, FaHouse, FaMoneyBillTransfer, FaUpload, FaVideo } from "react-icons/fa6";
+import { FaBook, FaCashRegister, FaCreditCard, FaHouse, FaMoneyBillTransfer, FaUpload, FaUser, FaVideo } from "react-icons/fa6";
 import { GrTransaction } from "react-icons/gr";
+import { RxDashboard } from "react-icons/rx";
 
 type SidebarLink = Array<{
   key: string;
@@ -15,36 +16,29 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
   {
     key: "dashboard",
     label: "Dashboard",
-    path: "/dashboard/",
-    icon: <FaHouse size={18} />,
+    path: "/dashboard",
+    icon: <RxDashboard size={18} />,
     allowedRoles: [0],
     visible: true,
   },
   {
     key: "Transactions",
     label: "Transactions",
-    path: "/dashboard/library",
+    path: "/dashboard/transactions",
     icon: <GrTransaction size={18} />,
     allowedRoles: [0],
     visible: true,
   },
 
   {
-    key: "Transfers",
-    label: "Transfers",
-    path: "/dashboard/uploads",
-    icon:<FaMoneyBillTransfer size={18} />,
+    key: "Users",
+    label: "Users",
+    path: "/dashboard/users",
+    icon:<FaUser size={18} />,
     allowedRoles: [0],
     visible: true,
   },
-  {
-    key: "Upload media",
-    label: "Upload media",
-    path: "/auth/upload-media",
-    icon: <FaVideo size={18} />,
-    allowedRoles: [0],
-    visible: true,
-  },
+ 
   // {
   //   key: "Earnings",
   //   label: "Earnings",

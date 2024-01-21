@@ -35,7 +35,7 @@ const InputBase = React.forwardRef<HTMLInputElement, InputBaseProps>(
           aria-label="sensor"
           data-app-error={Boolean(error)}
           className={ ` ${variantFn(variant)} ${fullWidthFn(fullWidth)}  ${className} rounded-md  
-        placeholder:text-slate-400 
+        placeholder:text-slate-400  placeholder:text-xs
         data-[app-error=true]:border focus:bg-transparent !bg-transparent data-[app-error=true]:border-error-100 
         disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-neutral-bg disabled:border-neutral-border
         focus:!outline-none `}

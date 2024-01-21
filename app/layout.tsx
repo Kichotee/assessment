@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/provider/storeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+const poppins=Poppins({ subsets: ["devanagari"], weight:["100","200","300","400","500"] })
 
 export const metadata: Metadata = {
   title: "Payer",
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`h-[100dvh] ${inter.className}`}>
+      <body className={`h-[100dvh] ${poppins.className}`}>
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>

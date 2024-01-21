@@ -154,10 +154,7 @@ const DataTable = <TField extends ITableContraint>(
 
       return (
         <TableRow
-          className={`${
-            window.location.pathname === "/auth/trading/report" &&
-            "md:translate-x-[1.8rem] md:pr-[3.29rem]"
-          }`}
+          className={` px-2`}
           key={`${row?.id}-${rowIndex}-table-body`}
           onClick={(e) => {
             e.stopPropagation();
@@ -215,10 +212,7 @@ const DataTable = <TField extends ITableContraint>(
 
           {data && data.length > 0 ? (
             <tbody
-              className={`md:bg-neutral-commonBg ${
-                window.location.pathname === "/auth/trading/report" &&
-                "md:pl-[3.94rem] md:pr-[3.29rem]"
-              }`}
+              className={`px-2`}
             >
               {loading ? (
                 <TableRow style={{ height: 53 }}>

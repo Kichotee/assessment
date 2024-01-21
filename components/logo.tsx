@@ -54,9 +54,9 @@ const Logo = () => {
           </defs>
         </svg>
       ) : (
-        <img src="/logo.svg" className="max-w-[100%] " alt="" />
+        <img src="/logo.png" className="max-w-[3rem] " alt="" />
       )}
-      <p className={`text-[1.16825rem] ${isSmallScreen && "text-brand-primary"} font-serif  font-extrabold`}> Payer</p>
+      <p className={`text-[1.16825rem] ${isSmallScreen && "text-brand-primary"} block  font-extrabold`}> Payer</p>
     </div>
   );
 };

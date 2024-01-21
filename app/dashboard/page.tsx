@@ -47,7 +47,7 @@ const Dashboard = () => {
       filter: false,
       sorter: true,
       render(_, col) {
-        return <Column label={col?.amount as number} />;
+        return <Column label={col?.to as string} />;
       },
     },
 
@@ -78,6 +78,7 @@ const Dashboard = () => {
       <OverviewCardsGrid />
       <div className="mt-7 flex gap-4 w-full min-h-[30vh]">
         <div className="basis-2/3 border">
+          <h2 className="font-semibold text-xl pl-4">Recent Transactions</h2>
           <DataTable columns={columns} dataSource={transactions()} />
         </div>
         <div className="basis-1/3 border"></div>

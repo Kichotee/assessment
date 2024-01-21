@@ -18,7 +18,7 @@ const NEUTRAL = {
   commonBg:"F9FAFB",
   bodyText: "#64728C",
   sideBar: "#0F2657",
-  greyBg: "#F9FAFB",
+  greyBg: "#fafafa",
 };
 
 const ERROR = {
@@ -118,7 +118,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors:{
-        ...palette,...colors
+        ...colors,
+        ...palette
       }
     },
   },

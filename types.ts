@@ -87,3 +87,22 @@ export type UserData={
   transactions:transaction[];
   user:"Admin"|"User"
 } 
+
+export interface IModifiedDialog extends IChildren {
+  open: boolean;
+  afterContent?:React.ReactNode;
+  onClose: () => void;
+  onAction?: () => void;
+  onSeconAction?: () => void;
+  secActionText?: string;
+  actionText?: string;
+  title?: string;
+  description?: string;
+  subTitle?: string;
+  loading?: boolean;
+  disabled?: boolean;
+  isSecCancel?: boolean;
+  hideDialogTitle?: boolean;
+  actionSeverity?: "error" | "secondary" | "primary" | "success";
+  secActionSeverity?: "error" | "secondary" | "primary" | "success";
+}

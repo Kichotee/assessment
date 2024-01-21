@@ -26,7 +26,7 @@ const SuperTableHead = <TField extends ITableContraint>(
         "bg-neutral-greyBg  md:translate-x-[1.8rem] md:pr-[.29rem]"
       } ${
         window.location.pathname === "/auth/trading" && "px-[0.56rem] bg-neutral-greyBg"
-      }  text-black border-t border-b`}
+      }  text-black border-t border-b mx-2`}
     >
       {columns.map((column) => {
         
