@@ -6,15 +6,18 @@ import { DASHBOARD_SIDEBAR_LINKS } from "./sidebarData";
 import Logo from "../logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAppSelector } from "@/app/lib/store/hooks";
+import { RootState } from "@/app/lib/store/store";
 
 const Sidebar = () => {
-  const pathname= usePathname()
+  const pathname= usePathname();
+  const user= useAppSelector((state:RootState)=>state.user)
   return (
     <aside className="sticky top-0 bg-neutral-greyBg border-r h-screen hidden w-[80px] p-3 sm:flex flex-col   lg:w-[184px] items-start transition-all duration-300">
       <Logo />
       <div className="py-8 w-full flex flex-1 flex-col gap-8 ">
         {DASHBOARD_SIDEBAR_LINKS.map((link) => {
-          if (link.visible) {
+          if (link.allowedRoles.includes(user.user?.profile as string)) {
             return (
               <div  key={link.key} className={`${pathname===link.path ?" text-white bg-black rounded-sm py-2": "text-brand-tertiary"} hover:border-b  mb-1 px-2 py-1.5`}>
                 <Link href={link.path} className={` flex  items-center  text-sm gap-2`}>

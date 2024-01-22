@@ -8,9 +8,23 @@ type SidebarLink = Array<{
   label: string;
   path: string;
   icon: React.ReactNode;
-  allowedRoles: Array<number>;
+  allowedRoles: Array<string>;
   visible?: boolean;
 }>;
+
+export interface IRoleObject {
+ 
+  Admin: "Admin";
+  User: "User";
+ 
+  
+}
+export const APP_ROLES: IRoleObject = {
+ 
+  Admin: "Admin",
+  User: "User",
+ 
+};
 
 export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
   {
@@ -18,7 +32,7 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
     label: "Dashboard",
     path: "/dashboard",
     icon: <RxDashboard size={18} />,
-    allowedRoles: [0],
+    allowedRoles: [APP_ROLES.Admin,APP_ROLES.User],
     visible: true,
   },
   {
@@ -26,7 +40,7 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
     label: "Transactions",
     path: "/dashboard/transactions",
     icon: <GrTransaction size={18} />,
-    allowedRoles: [0],
+    allowedRoles: [APP_ROLES.Admin,APP_ROLES.User],
     visible: true,
   },
 
@@ -35,7 +49,7 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
     label: "Users",
     path: "/dashboard/users",
     icon:<FaUser size={18} />,
-    allowedRoles: [0],
+    allowedRoles: [APP_ROLES.Admin],
     visible: true,
   },
  

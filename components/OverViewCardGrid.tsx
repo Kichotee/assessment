@@ -6,6 +6,7 @@ import OverviewCards from "./Cards/overviewCard";
 import { BiSolidBarChartSquare, BiSolidWalletAlt, BiMoney, BiSolidDiscount } from "react-icons/bi";
 import { useAppSelector } from "@/app/lib/store/hooks";
 import { RootState } from "@/app/lib/store/store";
+import { TbCurrencyNaira } from "react-icons/tb";
 // import Auth from "@/api/auth";
 // import { LoginResponse } from "@/features/auth/types/Responses";
 
@@ -18,17 +19,17 @@ const user= useAppSelector((state:RootState)=>state.user)
     {
       icon: <BiSolidBarChartSquare size={20} color="red" />,
       heading: "Account Balance",
-      amount: `$${ user.user?.balance}`,
+      amount: `${ user.user?.balance}`,
     },
     {
       icon: <BiSolidWalletAlt size={20} color="green" />,
-      heading: "Net Asset Value",
+      heading: "Net Asset Balance",
       amount:`$${ 0}`,
     },
     {
       icon: <BiMoney size={20} color="blue" />,
-      heading: "Commission",
-      amount: 20,
+      heading: "Transactions",
+      amount: user.user?.transactions.length,
     },
     {
       icon: <BiSolidDiscount size={20} color="blue" />,

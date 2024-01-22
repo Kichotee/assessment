@@ -15,9 +15,7 @@ export interface UserState {
   isLoading: boolean;
   message: string;
   token: string | null | undefined;
-}
-
-const token: string | null = localStorage.getItem("token");
+};
 
 const initialState: UserState = {
   user:  {
@@ -30,27 +28,36 @@ const initialState: UserState = {
           from: "Timi Dele",
           to: "John",
           amount: -356890,
+          type:"credit",
+          status:"successful"
+          
         },
         {
           date: "2023-07-12 12:24:21",
           from: "Timi Dele",
           to: "Gary",
           amount: 25609,
+          type:"credit",
+          status:"successful"
         },
         {
           date: "2023-07-12 12:24:21",
           from: "Timi Dele",
           to: "Eze",
           amount: -356890,
+          type:"credit",
+          status:"failed"
         },
         {
           date: "2023-07-12 12:24:21",
           from: "Timi Dele",
           to: "John",
           amount: 30,
+          type:"credit",
+          status:"successful"
         },
       ],
-    user:"Admin"
+    profile:"Admin"
   },
   isError: false,
   isSuccess: false,

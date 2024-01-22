@@ -15,10 +15,10 @@ const OverviewCards = ({icon,heading,amount}:Iprops) => {
             </div>
             <div className="">
                 <h2 className="text-xl font-bold">
-                    {heading}
+               {heading}
                 </h2>
                 <p className="mt-[0.5rem] text-sm text-text-sub">
-                    {amount}
+               {heading=="Account Balance" && <span>&#8358;</span>  }  {amount}
                 </p>
             </div>
         </div>

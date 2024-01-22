@@ -77,6 +77,9 @@ export type transaction={
   to:string;
   amount:number;
   date:string;
+  description?:string;
+  type:"credit"|"debit";
+  status:"pending"|"successful"|"failed"
   
 }
 
@@ -85,7 +88,7 @@ export type UserData={
   email:string;
   balance:string|number;
   transactions:transaction[];
-  user:"Admin"|"User"
+  profile:"Admin"|"User"
 } 
 
 export interface IModifiedDialog extends IChildren {
@@ -105,4 +108,9 @@ export interface IModifiedDialog extends IChildren {
   hideDialogTitle?: boolean;
   actionSeverity?: "error" | "secondary" | "primary" | "success";
   secActionSeverity?: "error" | "secondary" | "primary" | "success";
+}
+
+export type Auth={
+  email:string;
+  password:string;
 }

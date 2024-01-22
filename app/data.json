@@ -1,4 +1,86 @@
 {
-    "email": "admin@qataloog.com",
-    "content": "Lorem Ipsum"
-  }
+  "users": [
+    {
+      "id": 1,
+      "name": "Timi Dele",
+      "email": "TimiDell@gmail.com",
+      "balance": "100",
+      "transactions": [
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "John",
+          "amount": -356890,
+          "type": "credit",
+          "status": "successful"
+        },
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "Gary",
+          "amount": 25609,
+          "type": "credit",
+          "status": "successful"
+        },
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "Eze",
+          "amount": -356890,
+          "type": "credit",
+          "status": "failed"
+        },
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "John",
+          "amount": 30,
+          "type": "credit",
+          "status": "successful"
+        }
+      ],
+      "user": "Admin"
+    },
+    {
+      "id": 1,
+      "name": "Jack Chukwu",
+      "email": "JackChukwu@gmail.com",
+      "balance": "2000",
+      "transactions": [
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "John",
+          "amount": -356890,
+          "type": "credit",
+          "status": "successful"
+        },
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "Gary",
+          "amount": 25609,
+          "type": "credit",
+          "status": "successful"
+        },
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "Eze",
+          "amount": -356890,
+          "type": "credit",
+          "status": "failed"
+        },
+        {
+          "date": "2023-07-12 12:24:21",
+          "from": "Timi Dele",
+          "to": "John",
+          "amount": 30,
+          "type": "credit",
+          "status": "successful"
+        }
+      ],
+      "user": "user"
+    }
+  ]
+}

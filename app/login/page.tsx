@@ -3,19 +3,34 @@ import { promises as fs } from "fs";
 import ControlledOutlineInput from "@/components/Input/controlledOutlineInput";
 import OutlinedInput from "@/components/Input/outlinedInput";
 import React from "react";
-import { authenticate } from "../lib/actions";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import Logo from "@/components/logo";
+import LoginForm from "@/components/auth/LoginForm";
 
-const Login = async () => {
+type IProps = {
+  isLoggedIn: boolean;
+};
+
+const Login = async (props: IProps) => {
+  const { isLoggedIn } = props;
+
+  if (isLoggedIn) {
+    return redirect("/dashboard"); // Redirect to protected page
+  }
   return (
-    <div className="flex w-full  items-center h-full pt-12">
-      <img src="/hero_img.jpg" className="max-w-[50%]" alt="" />
+    <div className="flex w-full overflow-hidden items-center h-full ">
+      <img
+        src="/hero_img.jpg"
+        className="max-w-[50%] max-h-[100%] h-full"
+        alt=""
+      />
       <div className="flex flex-col gap-12w w-[50%]  h-full justify-center items-center">
         <div className="max-w-[8rem]">
           <Logo />
         </div>
-        <form
+        <h3 className="">Sign in to Payer</h3>
+        {/* <form
           action={authenticate}
           className="flex flex-col gap-4 w-[24rem] items-center py-4 px-2  "
         >
@@ -39,7 +54,8 @@ const Login = async () => {
           >
             Login
           </button>
-        </form>
+        </form> */}
+        <LoginForm />
       </div>
     </div>
   );

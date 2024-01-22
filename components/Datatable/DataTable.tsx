@@ -171,7 +171,7 @@ const DataTable = <TField extends ITableContraint>(
                 // width={column?.width as number}
 
                 key={`${column.dataIndex}-${columnIndex}`}
-                className="whitespace-nowrap "
+                className="whitespace-nowrap   first-of-type:pl-4"
               >
                 {renderCellData(column, row, rowIndex, column?.onMenuClick)}
               </TableCell>
@@ -212,7 +212,7 @@ const DataTable = <TField extends ITableContraint>(
 
           {data && data.length > 0 ? (
             <tbody
-              className={`px-2`}
+              className={`mx-2`}
             >
               {loading ? (
                 <TableRow style={{ height: 53 }}>

@@ -13,12 +13,12 @@ import ControlledOutlineInput from "@/components/Input/controlledOutlineInput";
 import { useForm } from "react-hook-form";
 import StatusAlert from "@/components/Buttons/StatusAlert";
 
-const Transactions = () => {
+const Users = () => {
   const user = useAppSelector((state: RootState) => state.user);
 const {control}= useForm()
   const columns: TypeColumns<transaction>[] = [
     {
-      title: "Transaction Date",
+      title: "Name",
       dataIndex: "Date",
       filter: false,
       sorter: true,
@@ -27,7 +27,7 @@ const {control}= useForm()
       },
     },
     {
-      title: "Amount",
+      title: "Email",
       dataIndex: "amount",
       filter: false,
       sorter: true,
@@ -37,7 +37,7 @@ const {control}= useForm()
       },
     },
     {
-      title: "Sender",
+      title: "Status",
       dataIndex: "from",
       filter: false,
       sorter: true,
@@ -104,4 +104,4 @@ const toggleModal=()=>{
   );
 };
 
-export default Transactions;
+export default Users;

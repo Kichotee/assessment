@@ -21,12 +21,7 @@ const SuperTableHead = <TField extends ITableContraint>(
 
   return (
     <TableHead
-      className={` tablehead h-[3.25rem] ${
-        window.location.pathname === "/auth/trading/report" &&
-        "bg-neutral-greyBg  md:translate-x-[1.8rem] md:pr-[.29rem]"
-      } ${
-        window.location.pathname === "/auth/trading" && "px-[0.56rem] bg-neutral-greyBg"
-      }  text-black border-t border-b mx-2`}
+      className={` tablehead h-[3.25rem]  text-black border-t border-b pl-2`}
     >
       {columns.map((column) => {
         
@@ -39,7 +34,7 @@ const SuperTableHead = <TField extends ITableContraint>(
             }}
             key={`${dataIndex}-table-head-cell-${title}`}
             // width={}
-            className="whitespace-nowrap capitalize    py-4 font-bold"
+            className="whitespace-nowrap capitalize first-of-type:pl-4   py-4 font-bold"
             scope="col"
           >
             <div className="flex gap-1 text-[0.875rem] items-center cursor-pointer">

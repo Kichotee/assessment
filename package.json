@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8080",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,6 +13,8 @@
     "@hookform/resolvers": "2.9.1",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.6.5",
+    "firebase": "^10.7.2",
+    "json-server": "^1.0.0-alpha.21",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",

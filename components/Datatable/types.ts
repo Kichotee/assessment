@@ -81,12 +81,12 @@ export type TypeColumns<TField extends ITableContraint> = {
 export interface IDataTable<TField extends ITableContraint> {
   columns: TypeColumns<TField>[];
   dataSource: DataSourceObjType<TField>[];
-  tableParams: ITablePagination;
-  setTableParams: ITablePaginationFunction;
-  fullData: any;
+  tableParams?: ITablePagination;
+  setTableParams?: ITablePaginationFunction;
+  fullData?: any;
   emptyState?: React.ReactNode;
   loading?: boolean;
-  url:any
+  url?:any
   handleFilter?: (event: React.MouseEvent<unknown>, property: string) => void;
   onRowClick?: (x: DataSourceObjType<TField>) => void;
   stickyHeader?: boolean;
@@ -96,7 +96,7 @@ export interface IDataTable<TField extends ITableContraint> {
     title?: string | undefined;
   };
   menuAction?: "default" | "none";
-  tableHeader: string | undefined;
+  tableHeader?: string | undefined;
 }
 export type OrderType = "asc" | "desc";
 
