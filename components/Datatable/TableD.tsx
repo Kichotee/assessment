@@ -8,7 +8,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
         data-cell={columnTitle}
         ref={ref}
         width={width}
-        className="bg-transparent w-max text-sm font-light mx-auto dark:text-slate-900 "
+        className="bg-transparent w-max text-xs font-light mx-auto dark:text-slate-900 "
         {...props}
       >
         {children}

@@ -62,12 +62,12 @@ const DataTable = <TField extends ITableContraint>(
   const [sortBy, setSortBy] = React.useState(null);
   const [sortOrder, setSortOrder] = React.useState("asc");
 
-  const sortTable = (column) => {
+  const sortTable = (column:any) => {
     const newData = [...data];
     if (sortOrder === "asc") {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
       newData.sort((a, b) => {
-        return a[column] > b[column] ? 1 : -1;
+        return a?.[column] > b?.[column] ? 1 : -1;
       });
     } else {
       newData.sort((a, b) => {
@@ -171,7 +171,7 @@ const DataTable = <TField extends ITableContraint>(
                 // width={column?.width as number}
 
                 key={`${column.dataIndex}-${columnIndex}`}
-                className="whitespace-nowrap   first-of-type:pl-4"
+                className="whitespace-nowrap text-xs  first-of-type:pl-4"
               >
                 {renderCellData(column, row, rowIndex, column?.onMenuClick)}
               </TableCell>
@@ -185,9 +185,9 @@ const DataTable = <TField extends ITableContraint>(
     tableParams?.pagination?.pageNumber > 0
       ? Math.max(
           0,
-          (1 + tableParams.pagination.pageNumber) *
-            tableParams.pagination.pageSize -
-            tableParams.pagination.total
+          (1 + tableParams?.pagination.pageNumber) *
+            tableParams?.pagination.pageSize -
+            tableParams?.pagination.total
         )
       : 0;
 

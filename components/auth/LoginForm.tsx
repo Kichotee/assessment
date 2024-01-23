@@ -12,10 +12,10 @@ import { Auth } from "@/types";
 // export type MyFormFields = z.infer<typeof myFormSchema>;
 
 export default function LoginForm() {
-  // const router= useRouter()
+
   const onSubmit = async (data:Auth) => {
     const res = await handleMyFormSubmit(data);
-    // window.location.href = "/dashboard";
+   
     if (res) {
       
       return;

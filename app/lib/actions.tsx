@@ -39,7 +39,7 @@ const onSignupSubmit = async (data: Auth) => {
 };
 
 export async function handleMyFormSubmit(data: Auth) {
-  console.log({ firstName: data.password, email: data.email });
+  console.log(data);
 
   const res = await onloginSubmit(data);
 

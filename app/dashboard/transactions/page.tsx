@@ -12,6 +12,7 @@ import React from "react";
 import ControlledOutlineInput from "@/components/Input/controlledOutlineInput";
 import { useForm } from "react-hook-form";
 import StatusAlert from "@/components/Buttons/StatusAlert";
+import SendModal from "@/components/Dialog/SendModal";
 
 const Transactions = () => {
   const user = useAppSelector((state: RootState) => state.user);
@@ -33,7 +34,8 @@ const {control}= useForm()
       sorter: true,
       render(_, col) {
         // @ts-ignore
-        return <Column label={`${  <span>&#8358;</span> +""+col?.amount} `} />;
+        return <Column label={<span>&#8358; {col?.amount}</span>} />;
+
       },
     },
     {
@@ -66,7 +68,7 @@ const {control}= useForm()
       },
     },
     {
-      title: "Receiver",
+      title: "transaction",
       dataIndex: "to",
       filter: false,
       sorter: true,
@@ -76,9 +78,10 @@ const {control}= useForm()
     },
   ];
   const [openModal, setOpenModal]= React.useState(false)
-const toggleModal=()=>{
-  setOpenModal(prev=>!prev)
-}
+  const toggleModal = () => {
+    setOpenModal((prev) => !prev);
+  };
+
   return (
     <>
       <section className="mt-7">
@@ -87,19 +90,16 @@ const toggleModal=()=>{
             Send money
           </Button>
         </div>
+        <div className="border shadow">
+
         <DataTable
           columns={columns}
           dataSource={user.user?.transactions as transaction[]}
         />
+        </div>
       </section>
 
-      <ModifiedDialog open={openModal} title="Transfer Money" description="Send money to anyone around all over the world" actionText="Send" onClose={toggleModal}>
-        <form action="">
-         <ControlledOutlineInput name={"receiver"} label="Receiver's Id" control={control} placeholder="E.g 90o9oiu76" fullWidth/>
-        <ControlledOutlineInput name={"amount"} control={control} fullWidth  label="Amount" placeholder="5000"/>
-        </form>
-
-      </ModifiedDialog>
+      <SendModal open={openModal} setOpen={toggleModal} />
     </>
   );
 };

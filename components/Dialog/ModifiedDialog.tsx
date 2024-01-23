@@ -6,7 +6,8 @@ import { IModifiedDialog } from "@/types";
 // import IconButton from "@/shared/Button/IconButton";
 import Button from "@/components/Buttons/Button";
 import CircularProgress from "../CircularProgress";
-// import CircularProgress from "@/shared/CircularProgress";
+// import CircularProgress from "@/shared/CircularProgress
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const ModifiedDialog = (props: IModifiedDialog) => {
   const {
@@ -53,18 +54,18 @@ const ModifiedDialog = (props: IModifiedDialog) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="modified-dialog-content w-[28rem] max-w-xl md:max-w-5xl md:pt-[3rem] pt-[1.25rem] pb-[2rem] md:pb-[3.5rem]  transform overflow-auto relative rounded-md bg-[white] text-black  text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="modified-dialog-content w-[28rem] max-w-xl md:max-w-5xl md:pt-[3rem] pt-[1.25rem] pb-[2rem] md:pb-[3.5rem] px-4 transform overflow-auto relative rounded-md bg-[white] text-black  text-left align-middle shadow-xl transition-all">
                 {!hideDialogTitle && (
                   <Dialog.Title className="pt-3  px-2  md:px-4  sticky  top-0 bg-white z-10">
                     <div className="flex justify-between items-center font-semibold">
-                      <p className=" text-[1.625rem]  flex-1">
+                      <p className=" text-[1.15rem]  flex-1">
                         {title || ""}
                       </p>
                       <button
                         onClick={onClose}
                         className="bg-white text-black rounded-full h-6 w-6 grid place-items-center place-content-center "
                       >
-                        {/* <CloseCircle /> */} X
+                      <IoMdCloseCircleOutline />
                       </button>
                       {/* <div className="bg-white ">
                       </div> */}
@@ -73,7 +74,7 @@ const ModifiedDialog = (props: IModifiedDialog) => {
                 )}
                 <Dialog.Description className="px-2 md:px-4">
                   {description && (
-                    <p className=" text-gray-600 text-sm my-2">{description}</p>
+                    <p className=" text-gray-600 text-xs my-2">{description}</p>
                   )}
                   <div>{children}</div>
                 </Dialog.Description>
@@ -115,8 +116,8 @@ const ModifiedDialog = (props: IModifiedDialog) => {
 
                     {actionText && (
                       <Button
-                        className="w-full"
-                        themeColor="secondary"
+                        className="w-full !text-white"
+                        
                         variant="contained"
                         onClick={() => {
                           if (onAction) {
@@ -137,7 +138,7 @@ const ModifiedDialog = (props: IModifiedDialog) => {
                     )}
                   </div>
                 </div>
-                <div className="p-2 md:p-4">{afterContent}</div>
+              { afterContent && <div className="p-2 md:p-4">{afterContent}</div>}
               </Dialog.Panel>
             </Transition.Child>
           </div>

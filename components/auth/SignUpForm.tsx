@@ -22,7 +22,7 @@ export default function SignUpForm() {
   });
 
   return (
-    <form action={onMyFormSubmit} className="flex flex-col gap-2">
+    <form onSubmit={onMyFormSubmit} className="flex flex-col gap-2">
       <div>
         {/* <label>First name</label>
         <input {...form.register("firstName")}/> */}

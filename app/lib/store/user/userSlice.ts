@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
@@ -6,6 +5,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import userService from "./userService";
 import { UserData } from "@/types";
+import data from "@/app/data.json";
 
 export interface UserState {
   user: UserData | null;
@@ -15,57 +15,19 @@ export interface UserState {
   isLoading: boolean;
   message: string;
   token: string | null | undefined;
-};
+}
 
 const initialState: UserState = {
-  user:  {
-    name:"Timi Dele",
-    email:"TimiDell@gmail.com",
-    balance:"100",
-    transactions:  [
-        {
-          date: "2023-07-12 12:24:21",
-          from: "Timi Dele",
-          to: "John",
-          amount: -356890,
-          type:"credit",
-          status:"successful"
-          
-        },
-        {
-          date: "2023-07-12 12:24:21",
-          from: "Timi Dele",
-          to: "Gary",
-          amount: 25609,
-          type:"credit",
-          status:"successful"
-        },
-        {
-          date: "2023-07-12 12:24:21",
-          from: "Timi Dele",
-          to: "Eze",
-          amount: -356890,
-          type:"credit",
-          status:"failed"
-        },
-        {
-          date: "2023-07-12 12:24:21",
-          from: "Timi Dele",
-          to: "John",
-          amount: 30,
-          type:"credit",
-          status:"successful"
-        },
-      ],
-    profile:"Admin"
-  },
+  user: data.users[0] as unknown as UserData,
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: "",
-  token:  "",
+  token: "",
   isLoggedIn: false,
 };
+
+// The actions below are  a represenattion of how i would handle auth processes with a backend service
 
 // Register user
 export const register = createAsyncThunk(
@@ -85,18 +47,21 @@ export const register = createAsyncThunk(
 );
 
 // Login user
-export const login = createAsyncThunk("user/login", async (userParams: UserData, thunkAPI) => {
-  try {
-    return await userService.login(userParams);
-  } catch (err: any) {
-    const message =
-      (err.response && err.response.data && err.response.data.message) ||
-      err.message ||
-      err.toString();
+export const login = createAsyncThunk(
+  "user/login",
+  async (userParams: UserData, thunkAPI) => {
+    try {
+      return await userService.login(userParams);
+    } catch (err: any) {
+      const message =
+        (err.response && err.response.data && err.response.data.message) ||
+        err.message ||
+        err.toString();
 
-    return thunkAPI.rejectWithValue(message);
+      return thunkAPI.rejectWithValue(message);
+    }
   }
-});
+);
 
 export const logout = createAsyncThunk("user/logout", async () => {
   await userService.Logout();
@@ -115,6 +80,20 @@ export const userSlice = createSlice({
       state.user = null;
       state.token = "";
     },
+    loginUser: (state, action) => {
+      if (state.user) {
+        state.user.profile = "User";
+        state.isLoggedIn = true;
+      }
+    },
+    togglePermission: (state) => {
+      if (state.user) {
+        state.user.profile == "Admin"
+          ? (state.user = data.users[1] as unknown as UserData)
+          : (state.user = data.users[0] as unknown as UserData);
+      }
+    },
+    logoutUser: () => {},
   },
   extraReducers: (builder) => {
     builder
@@ -156,4 +135,4 @@ export const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { reset } = userSlice.actions;
+export const { reset, loginUser, togglePermission } = userSlice.actions;

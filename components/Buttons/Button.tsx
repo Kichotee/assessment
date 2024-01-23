@@ -17,12 +17,12 @@ const variantFn = (variantStyle = "") => {
 const themeColorFn = (style = "") => {
   switch (style) {
     case "main":
-      return " text-white bg-gradient md:text-[1rem] text-sm font-semibold px-8 py-2 rounded-lg hover:scale-105 duration-200";
+      return " text-white text-sm bg-brand-primary  font-medium px-4 py-2 rounded-lg hover:scale-105 duration-200";
     case "white":
       return "bg-white text-brand-primary duration-200 rounded-lg";
 
-    case "":
-      return "";
+    case "error":
+      return "text-white bg-error-150 text-xs ";
     default:
   }
 };
@@ -49,7 +49,7 @@ const Button = ({
   return (
     <button
       {...props}
-      className={classNames( variantFn(variant), themeColorFn(themeColor), sizeFn(size),className)}
+      className={classNames( variantFn(variant as string), themeColorFn(themeColor), sizeFn(size),className)}
       type={type || "button"}
     >
       {children}

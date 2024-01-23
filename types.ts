@@ -83,11 +83,21 @@ export type transaction={
   
 }
 
+export type user = {
+  name: string;
+  email: string;
+  balance: string | number;
+  transactions: 4;
+  status:"active"|"inactive"
+
+};
+
 export type UserData={
   name:string;
   email:string;
   balance:string|number;
   transactions:transaction[];
+  users:user[]
   profile:"Admin"|"User"
 } 
 

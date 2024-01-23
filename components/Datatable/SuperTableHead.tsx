@@ -21,7 +21,7 @@ const SuperTableHead = <TField extends ITableContraint>(
 
   return (
     <TableHead
-      className={` tablehead h-[3.25rem]  text-black border-t border-b pl-2`}
+      className={` tablehead h-[3.25rem]  text-black border-b pl-2`}
     >
       {columns.map((column) => {
         
@@ -37,7 +37,7 @@ const SuperTableHead = <TField extends ITableContraint>(
             className="whitespace-nowrap capitalize first-of-type:pl-4   py-4 font-bold"
             scope="col"
           >
-            <div className="flex gap-1 text-[0.875rem] items-center cursor-pointer">
+            <div className="flex gap-1 text-sm items-center cursor-pointer">
               {title}
               {sorter &&<BiSortDown />}
             </div>

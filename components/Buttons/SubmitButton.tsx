@@ -1,14 +1,26 @@
-'use client'
- 
-import { useFormStatus } from 'react-dom'
-import Button from './Button'
- 
+"use client";
+
+import { useFormStatus } from "react-dom";
+import Button from "./Button";
+import CircularProgress from "../CircularProgress";
+
 export function SubmitButton() {
-  const { pending } = useFormStatus()
- 
+  const { pending } = useFormStatus();
+
   return (
-    <Button variant='main' type="submit" aria-disabled={pending}>
-      Submit
+    <Button
+      variant="contained"
+      themeColor="main"
+      type="submit"
+      aria-disabled={pending}
+    >
+      {pending ? (
+        <div className="flex justify-center">
+          <CircularProgress color="white" />
+        </div>
+      ) : (
+        "Submit"
+      )}
     </Button>
-  )
+  );
 }

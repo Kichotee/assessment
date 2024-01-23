@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Avatar from "@/components/Avatar/Avatar";
 import { RootState } from "@/app/lib/store/store";
 import { IoSettingsOutline } from "react-icons/io5";
+import ProfileSwitch from "../toggleUser";
 // import LanguageSwitcher from "@/features/misc/components/languageSwitch";
 
 const Header = () => {
@@ -21,6 +22,7 @@ const Header = () => {
 
       {/* right side */}
         <div className="flex gap-4 items-center">
+          <ProfileSwitch/>
         <IoSettingsOutline />
           <Avatar name={user?.name as string} />
         </div>
